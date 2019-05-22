@@ -1,0 +1,9 @@
+{
+  "name": "guide-words-extractor",
+  "version": "0.1.0",
+  "description": "A script to obtain Guide Words from the dictionary",
+  "main": "index.js",
+  "repository": "https://github.com/ElectronicBabylonianLiterature/guide-words-extractor.git",
+  "author": "Alexander Kudryavtsev <alexander.kdv@gmail.com>",
+  "license": "MIT"
+}
