@@ -62,3 +62,6 @@ typings/
 
 # dictionary
 words.json
+
+#RINAP glossary
+RINAP_gloss-akk.json
