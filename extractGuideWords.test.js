@@ -16,7 +16,7 @@ test.each([
           
           "meaning": '\\"to be(come) fitting, suitable; seasonable\\',
         }],
-        [ "dirty" , "be(come) fitting" ]
+        [ "dirty" , "to be(come) fitting" ]
     ]
   ])('%s', (word, guideWords) => {
     const extractedWords = extractGuideWords(word)
