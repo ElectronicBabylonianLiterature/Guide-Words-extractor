@@ -1,4 +1,4 @@
-const extractGuideWord = require('./extractGuideWord')
+const extractGuideWords = require('./extractGuideWords')
 
 test.each([
     [[{
@@ -18,7 +18,7 @@ test.each([
         }],
         [ "dirty" , "be(come) fitting" ]
     ]
-  ])('%s', (word, guideWord) => {
-    const extractedWord = extractGuideWord(word)
-    expect(extractedWord).toEqual(guideWord)
+  ])('%s', (word, guideWords) => {
+    const extractedWords = extractGuideWords(word)
+    expect(extractedWords).toEqual(guideWords)
   })
