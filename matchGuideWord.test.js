@@ -3,8 +3,8 @@ const matchGuideWord = require('./matchGuideWord')
 test.each([
   ['\\\\~ \\"veiled, covered\"', 'veiled'],
   ['\\"rare; valuable', 'rare'],
-  ['(*i/i*; stat. *(w)aruq*, occas. *uruq*) \\\\[SIG7\\\\] \\"become green, yellow; pale\\" of face, invalid; of fluids, fruit, glass, star', 'become green'],
-  ['\\"make manifest, appear\\", \\"produce, create\\"; \\"make clear, display\\"; \\"make glorious\\" kingship, name, deeds etc.', 'make manifest'],
+  ['(*i/i*; stat. *(w)aruq*, occas. *uruq*) \\\\[SIG7\\\\] \\"to be(come) green, yellow; pale\\" of face, invalid; of fluids, fruit, glass, star', 'to be(come) green'],
+  ['\\"to make manifest, appear\\", \\"produce, create\\"; \\"make clear, display\\"; \\"make glorious\\" kingship, name, deeds etc.', 'to make manifest'],
   ['\\"cure by exorcism O/jB', 'cure by exorcism'],
   ['\\"furious\\"', 'furious'],
   ['\\"to sit (down); dwell\\"', 'to sit (down)'],
@@ -17,7 +17,8 @@ test.each([
   ['\\[EGIR\\] adv.', ''],
   ['f. *(w)aruqtu(m)*', ''],
   ['liter. \'that which goes out\' \\\\[È- \\\\]', ''],
-  ['', '']
+  ['', ''],
+  ['(a type of vessel) OA', '(a type of vessel)']
 ])('%s', (meaning, guideWord) => {
   const strippedMeaning = matchGuideWord(meaning)
   expect(strippedMeaning).toEqual(guideWord)
