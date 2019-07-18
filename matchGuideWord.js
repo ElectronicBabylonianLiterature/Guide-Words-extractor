@@ -1,7 +1,7 @@
 
 module.exports = function matchGuideWord (meaning) {
-  const regExp = new RegExp('(\\\\")(\\D+?)(\\\\|,|;|\\s[A-Z])')
+  const regExp = new RegExp('(\\\\")(\\D+?)(\\\\"|,|;|\\s[A-Z])')
   const match = regExp.exec(meaning)
-  return match[2]
+  return match !== null ? match[2] : ''
 }
 
