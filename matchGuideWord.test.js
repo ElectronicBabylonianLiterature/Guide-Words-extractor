@@ -23,7 +23,8 @@ test.each([
   ['f. *(w)aruqtu(m)*', ''],
   ['liter. \'that which goes out\' \\\\[È- \\\\]', ''],
   ['', ''],
-  ['(a type of vessel) OA', '(a type of vessel)']
+  ['(a type of vessel) OA', '(a type of vessel)'],
+  ['mng. unkn. OA', 'meaning unknown']
 ])('%s', (meaning, guideWord) => {
   const strippedMeaning = matchGuideWord(meaning)
   expect(strippedMeaning).toEqual(guideWord)

@@ -21,6 +21,17 @@ function checkForVerb (meaning) {
   } 
 }
 
+function checkForUnknownMeaning (meaning) {
+  const regExp = new RegExp('mng. unkn.')
+  const match = regExp.exec(meaning)
+  if (match !== null) {
+    const replacedMatch = match.join('').replace(/mng. unkn./g, 'meaning unknown')
+    return replacedMatch
+  } else {
+    return ''
+  }
+}
+
 module.exports = function matchGuideWord (meaning) { 
   const regExp = new RegExp('(\\\\")(\\D+?)(\\\\"|,|;|\\s[A-Z])')
   const match = regExp.exec(meaning)
@@ -31,6 +42,8 @@ module.exports = function matchGuideWord (meaning) {
   } else {
     return checkForGeneralisedMeaning(meaning) !== "" 
       ? checkForGeneralisedMeaning(meaning)
-      : ''
+      : checkForUnknownMeaning(meaning) !== ""
+        ? checkForUnknownMeaning(meaning)
+        : ''
 }
 }
