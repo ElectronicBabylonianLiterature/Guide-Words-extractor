@@ -24,7 +24,8 @@ test.each([
   ['liter. \'that which goes out\' \\\\[È- \\\\]', ''],
   ['', ''],
   ['(a type of vessel) OA', '(a type of vessel)'],
-  ['mng. unkn. OA', 'meaning unknown']
+  ['mng. unkn. jB lex.', 'meaning unknown'],
+  ['(or *pahāṣ/zu(m)*) mng. unkn. O/jB', 'meaning unknown']
 ])('%s', (meaning, guideWord) => {
   const strippedMeaning = matchGuideWord(meaning)
   expect(strippedMeaning).toEqual(guideWord)

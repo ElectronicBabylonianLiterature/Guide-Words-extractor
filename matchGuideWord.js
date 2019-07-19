@@ -40,10 +40,10 @@ module.exports = function matchGuideWord (meaning) {
       ? checkForVerb(meaning)
       : match[2]
   } else {
-    return checkForGeneralisedMeaning(meaning) !== "" 
-      ? checkForGeneralisedMeaning(meaning)
-      : checkForUnknownMeaning(meaning) !== ""
-        ? checkForUnknownMeaning(meaning)
+    return checkForUnknownMeaning(meaning) !== "" 
+      ? checkForUnknownMeaning(meaning)
+      : checkForGeneralisedMeaning(meaning) !== ""
+        ? checkForGeneralisedMeaning(meaning)
         : ''
 }
 }
