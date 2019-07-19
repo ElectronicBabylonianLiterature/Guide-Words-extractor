@@ -1,3 +1,4 @@
+const pos = require('pos')
 
 function checkForGeneralisedMeaning (meaning) {
   const regExp = new RegExp('^\\(\\D+\\)')
@@ -5,12 +6,31 @@ function checkForGeneralisedMeaning (meaning) {
   return match !== null ? match[0] : ""
 }
 
-module.exports = function matchGuideWord (meaning) {
+function checkForVerb (meaning) {
+  const regExp = new RegExp('(\\\\")(to\\s)(\\D+?)(\\\\"|,|;|\\s[A-Z])')
+  const match = regExp.exec(meaning)
+  if (match !== null) {
+    const tagger = new pos.Tagger()
+    const matchAsArray = match[3].split(' ')
+    const onlySecondWord = matchAsArray[0]
+    const word = new pos.Lexer().lex(`${onlySecondWord}`);
+    const tagged = tagger.tag(word)
+    return tagged [0][1] === 'VB' ? match[3] : `to ${match[3]}`
+  } else {
+    return ''
+  } 
+}
+
+module.exports = function matchGuideWord (meaning) { 
   const regExp = new RegExp('(\\\\")(\\D+?)(\\\\"|,|;|\\s[A-Z])')
   const match = regExp.exec(meaning)
   if (match !== null) {
-    return match[2]
-} else {
-  return checkForGeneralisedMeaning(meaning)
+    return checkForVerb(meaning) !== ''
+      ? checkForVerb(meaning)
+      : match[2]
+  } else {
+    return checkForGeneralisedMeaning(meaning) !== "" 
+      ? checkForGeneralisedMeaning(meaning)
+      : ''
 }
 }
