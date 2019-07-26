@@ -23,3 +23,9 @@ A script to obtain Guide Words from the dictionary
 
 - if a word is present in a volume of CAD that is more recent than CDA than ORACC uses the GW from CAD.
 - ORACC lemmas use `ʾ` and eBL lemmas use `'`.
+
+## Usage
+
+Run: `node index.js`
+
+`words.json` and `oraccGlossary.json` have to be in the working directory.
