@@ -27,7 +27,7 @@ function extractGuideWord(word) {
 
 module.exports = function extractGuideWords(words) {
     return words.map(word => ({
-        lemma: word._id,
+        lemma: word._id.replace(/ [IV]+$/, ''),
         guideWord: extractGuideWord(word)
     }))
 }

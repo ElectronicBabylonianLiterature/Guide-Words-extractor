@@ -50,7 +50,7 @@ test.each([
 ])('%s', (word, guideWord) => {
     const extractedWords = extractGuideWords([word])
     expect(extractedWords).toEqual([{
-        lemma: word._id,
+        lemma: 'lemma',
         guideWord
     }])
 })
