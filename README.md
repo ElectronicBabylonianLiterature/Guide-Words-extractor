@@ -28,6 +28,4 @@ A script to obtain Guide Words from the dictionary
 
 ## Usage
 
-Run: `node index.js`
-
-`words.json` and `oraccGlossary.json` have to be in the working directory.
+Run `node index.js`. `words.json` and `oraccGlossary.json` have to be in the working directory. The scripts will print some information and write resulting guide words to `guide-words.csv`.

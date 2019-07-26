@@ -65,3 +65,6 @@ words.json
 
 #RINAP glossary
 oraccGlossary.json
+
+# Output
+guide-words.csv
