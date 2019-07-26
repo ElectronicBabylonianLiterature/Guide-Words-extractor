@@ -4,7 +4,10 @@
   "description": "A script to obtain Guide Words from the dictionary",
   "main": "index.js",
   "repository": "https://github.com/ElectronicBabylonianLiterature/guide-words-extractor.git",
-  "author": "Alexander Kudryavtsev <alexander.kdv@gmail.com>",
+  "contributors": [
+    "Alexander Kudryavtsev <alexander.kdv@gmail.com>",
+    "Jussi Laasonen <jussi.laasonen@lmu.de>"
+  ],
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.13",
