@@ -1,21 +1,23 @@
 const matchGuideWord = require('./matchGuideWord')
 
-function checkForAmplifiedMeanings (word) {
+function checkForAmplifiedMeanings(word) {
   return word.amplifiedMeanings[0].meaning !== ""
-          ? matchGuideWord(word.amplifiedMeanings[0].meaning)
-          : word.amplifiedMeanings[0].entries[0].meaning !== ""
-            ? matchGuideWord(word.amplifiedMeanings[0].entries[0].meaning)
-            : ""
+    ? matchGuideWord(word.amplifiedMeanings[0].meaning)
+    : word.amplifiedMeanings[0].entries[0].meaning !== ""
+      ? matchGuideWord(word.amplifiedMeanings[0].entries[0].meaning)
+      : ""
 }
 
 module.exports = function extractGuideWords(words) {
-    return words.map(word => { 
-      if (word.meaning !== '') {
-        if (matchGuideWord(word.meaning) !== '') {
-          return matchGuideWord(word.meaning)
+  return words.map(word => {
+    if (word.meaning !== '') {
+      if (matchGuideWord(word.meaning) !== '') {
+        return matchGuideWord(word.meaning)
       } else {
-          return checkForAmplifiedMeanings(word)
-  }}  else {
-          return checkForAmplifiedMeanings(word)
-    }})
+        return checkForAmplifiedMeanings(word)
+      }
+    } else {
+      return checkForAmplifiedMeanings(word)
+    }
+  })
 }

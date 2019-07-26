@@ -1,12 +1,12 @@
 const pos = require('pos')
 
-function checkForGeneralisedMeaning (meaning) {
+function checkForGeneralisedMeaning(meaning) {
   const regExp = new RegExp('^\\(\\D+\\)')
   const match = regExp.exec(meaning)
   return match !== null ? match[0] : ""
 }
 
-function checkForVerb (meaning) {
+function checkForVerb(meaning) {
   const regExp = new RegExp('(\\\\")(to\\s)(\\D+?)(\\\\"|,|;|\\s[A-Z])')
   const match = regExp.exec(meaning)
   if (match !== null) {
@@ -15,13 +15,13 @@ function checkForVerb (meaning) {
     const onlySecondWord = matchAsArray[0]
     const word = new pos.Lexer().lex(`${onlySecondWord}`);
     const tagged = tagger.tag(word)
-    return tagged [0][1] === 'VB' ? match[3] : `to ${match[3]}`
+    return tagged[0][1] === 'VB' ? match[3] : `to ${match[3]}`
   } else {
     return ''
-  } 
+  }
 }
 
-function checkForUnknownMeaning (meaning) {
+function checkForUnknownMeaning(meaning) {
   const regExp = new RegExp('mng. unkn.')
   const match = regExp.exec(meaning)
   if (match !== null) {
@@ -32,7 +32,7 @@ function checkForUnknownMeaning (meaning) {
   }
 }
 
-module.exports = function matchGuideWord (meaning) { 
+module.exports = function matchGuideWord(meaning) {
   const regExp = new RegExp('(\\\\")(\\D+?)(\\\\"|,|;|\\s[A-Z])')
   const match = regExp.exec(meaning)
   if (match !== null) {
@@ -40,10 +40,10 @@ module.exports = function matchGuideWord (meaning) {
       ? checkForVerb(meaning)
       : match[2]
   } else {
-    return checkForUnknownMeaning(meaning) !== "" 
+    return checkForUnknownMeaning(meaning) !== ""
       ? checkForUnknownMeaning(meaning)
       : checkForGeneralisedMeaning(meaning) !== ""
         ? checkForGeneralisedMeaning(meaning)
         : ''
-}
+  }
 }
