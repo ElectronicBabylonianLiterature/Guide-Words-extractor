@@ -1,9 +1,12 @@
 const extractOraccGuideWords = require('./extractOraccGuideWords')
 
 test.each([
-  [[{ 'headword': 'amelu', 'gw': 'human' }], ['human']],
-  [[{ 'headword': 'libbu', 'gw': 'heart' }], ['heart']]
-])('%s', (word, guideWords) => {
-  const extractedWords = extractOraccGuideWords(word)
-  expect(extractedWords).toEqual(guideWords)
+  [{ 'cf': 'amelu', 'gw': 'human' }, 'human'],
+  [{ 'cf': 'libbu', 'gw': 'heart' }, 'heart']
+])('%s', (word, guideWord) => {
+  const extractedWords = extractOraccGuideWords([word])
+  expect(extractedWords).toEqual([{
+    lemma: word.cf,
+    guideWord
+  }])
 })

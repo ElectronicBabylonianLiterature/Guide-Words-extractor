@@ -1,8 +1,9 @@
 const extractGuideWords = require('./extractGuideWords')
 
 test.each([
-    [[{ "meaning": 'f. *aruštu*, *maruštu* "dirty" OA, M/NB of clothing, person; f. sg. and pl. as subst. "dirt";' }], ["dirty"]],
-    [[{
+    [{ "_id": 'lemma I', "meaning": 'f. *aruštu*, *maruštu* "dirty" OA, M/NB of clothing, person; f. sg. and pl. as subst. "dirt";' }, "dirty"],
+    [{
+        "_id": 'lemma II',
         "meaning": '\\[ITI; also ITI.1.KAM; OA ITI.KAM; NB astr. ÁB\\]',
         "amplifiedMeanings": [
             {
@@ -18,8 +19,9 @@ test.each([
                 "entries": []
             }
         ]
-    }], ["(fish)"]],
-    [[{
+    }, "(fish)"],
+    [{
+        "_id": 'lemma III',
         'meaning': '',
         "amplifiedMeanings": [
             {
@@ -38,13 +40,17 @@ test.each([
                 ]
             }
         ]
-    }], ["wing"]],
-    [[{
+    }, "wing"],
+    [{
+        "_id": 'lemma IV',
         "meaning": '\\[ITI; also ITI.1.KAM; OA ITI.KAM; NB astr. ÁB\\]',
         amplifiedMeanings: []
-    }], [null]],
+    }, null],
 
-])('%s', (word, guideWords) => {
-    const extractedWords = extractGuideWords(word)
-    expect(extractedWords).toEqual(guideWords)
+])('%s', (word, guideWord) => {
+    const extractedWords = extractGuideWords([word])
+    expect(extractedWords).toEqual([{
+        lemma: word._id,
+        guideWord
+    }])
 })
