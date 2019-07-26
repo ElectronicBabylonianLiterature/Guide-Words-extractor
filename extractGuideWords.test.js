@@ -38,7 +38,11 @@ test.each([
                 ]
             }
         ]
-    }], ["wing"]]
+    }], ["wing"]],
+    [[{
+        "meaning": '\\[ITI; also ITI.1.KAM; OA ITI.KAM; NB astr. ÁB\\]',
+        amplifiedMeanings: []
+    }], [null]],
 
 ])('%s', (word, guideWords) => {
     const extractedWords = extractGuideWords(word)

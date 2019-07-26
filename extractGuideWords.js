@@ -10,14 +10,19 @@ function checkForAmplifiedMeanings(word) {
 
 module.exports = function extractGuideWords(words) {
   return words.map(word => {
-    if (word.meaning !== '') {
-      if (matchGuideWord(word.meaning) !== '') {
-        return matchGuideWord(word.meaning)
+    try {
+      if (word.meaning !== '') {
+        if (matchGuideWord(word.meaning) !== '') {
+          return matchGuideWord(word.meaning)
+        } else {
+          return checkForAmplifiedMeanings(word)
+        }
       } else {
         return checkForAmplifiedMeanings(word)
       }
-    } else {
-      return checkForAmplifiedMeanings(word)
+    } catch(err) {
+      console.error(word._id, err.message)
+      return null
     }
   })
 }
