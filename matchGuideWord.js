@@ -1,13 +1,13 @@
 const pos = require('pos')
 
 function checkForGeneralisedMeaning(meaning) {
-  const regExp = new RegExp('^\\(\\D+\\)')
+  const regExp = /^\(\D+\)/
   const match = regExp.exec(meaning)
   return match !== null ? match[0] : ""
 }
 
 function checkForVerb(meaning) {
-  const regExp = new RegExp('(\\\\")(to\\s)(\\D+?)(\\\\"|,|;|\\s[A-Z])')
+  const regExp = /(")(to\s)(\D+?)("|,|;|\s[A-Z])/
   const match = regExp.exec(meaning)
   if (match !== null) {
     const tagger = new pos.Tagger()
@@ -33,7 +33,7 @@ function checkForUnknownMeaning(meaning) {
 }
 
 module.exports = function matchGuideWord(meaning) {
-  const regExp = new RegExp('(\\\\")(\\D+?)(\\\\"|,|;|\\s[A-Z])')
+  const regExp = /(")(\D+?)("|,|;|\s[A-Z])/
   const match = regExp.exec(meaning)
   if (match !== null) {
     return checkForVerb(meaning) !== ''

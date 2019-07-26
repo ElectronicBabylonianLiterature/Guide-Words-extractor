@@ -1,7 +1,7 @@
 const extractGuideWords = require('./extractGuideWords')
 
 test.each([
-    [[{ "meaning": 'f. *aruštu*, *maruštu* \\"dirty\\" OA, M/NB of clothing, person; f. sg. and pl. as subst. \\"dirt\\";' }], ["dirty"]],
+    [[{ "meaning": 'f. *aruštu*, *maruštu* "dirty" OA, M/NB of clothing, person; f. sg. and pl. as subst. "dirt";' }], ["dirty"]],
     [[{
         "meaning": '\\[ITI; also ITI.1.KAM; OA ITI.KAM; NB astr. ÁB\\]',
         "amplifiedMeanings": [
@@ -12,7 +12,7 @@ test.each([
                 "entries": []
             },
             {
-                "meaning": 'OB \\"to make immovable, paralyse]\\" part of body',
+                "meaning": 'OB "to make immovable, paralyse]" part of body',
                 "vowels": [],
                 "key": "Št",
                 "entries": []
@@ -28,11 +28,11 @@ test.each([
                 "key": "",
                 "entries": [
                     {
-                        "meaning": 'O/jB \\"wing\\" (of bird)',
+                        "meaning": 'O/jB "wing" (of bird)',
                         "vowels": []
                     },
                     {
-                        "meaning": 'O/jB(lit.) \\"fin\\" (of fish)',
+                        "meaning": 'O/jB(lit.) "fin" (of fish)',
                         "vowels": []
                     }
                 ]
