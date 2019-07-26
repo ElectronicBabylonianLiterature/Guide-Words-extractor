@@ -23,6 +23,8 @@ A script to obtain Guide Words from the dictionary
 
 - if a word is present in a volume of CAD that is more recent than CDA than ORACC uses the GW from CAD.
 - ORACC lemmas use `ʾ` and eBL lemmas use `'`.
+- ORACC glossary does not have homonym number.
+- Some ORACC lemmas are forms eBL.
 
 ## Usage
 
