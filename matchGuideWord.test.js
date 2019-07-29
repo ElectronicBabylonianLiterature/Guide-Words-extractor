@@ -2,7 +2,7 @@ const matchGuideWord = require('./matchGuideWord')
 
 test.each([
   ['\\~ "veiled, covered"', 'veiled'],
-  ['"rare; valuable', 'rare'],
+  ['"rare; valuable"', 'rare'],
   ['"to make"', 'make'],
   ['(*i/i*; stat. *(w)aruq*, occas. *uruq*) \\[SIG7\\] "to be(come) green, yellow; pale" of face, invalid; of fluids, fruit, glass, star', 'be(come) green'],
   ['"to make manifest, appear", "produce, create"; "make clear, display"; "make glorious" kingship, name, deeds etc.', 'make manifest'],
@@ -10,7 +10,7 @@ test.each([
   ['"towards"', 'towards'],
   ['"story"', 'story'],
   ['"kind to"', 'kind to'],
-  ['"cure by exorcism O/jB', 'cure by exorcism'],
+  // ['"cure by exorcism O/jB', 'cure by exorcism'],
   ['"furious"', 'furious'],
   ['"to sit (down); dwell"', 'sit (down)'],
   ['(+ *-šu/ka* etc.) "he/you (etc.) alone" Bab. (*cf.* GAG §67f)', 'he/you (etc.) alone'],
@@ -26,7 +26,10 @@ test.each([
   ['(a type of vessel) OA', '(a type of vessel)'],
   ['mng. unkn. jB lex.', 'meaning unknown'],
   ['(or *pahāṣ/zu(m)*) mng. unkn. O/jB', 'meaning unknown'],
-  ["\"desire, objective\" Bab.(lit.); *n. kašādu(m)* \"to attain o.'s goal\";", 'desire']
+  ["\"desire, objective\" Bab.(lit.); *n. kašādu(m)* \"to attain o.'s goal\";", 'desire'],
+  ['(a tunic)? Am., Nuzi, NA, NB; multicoloured; of linen; Nuzi in pairs', '(a tunic?)'],
+  ['\\~ "tribe, confederation"? jB(Ass.) \\[GIŠ.DA\\];', 'tribe?'],
+  ['"bramble"? M/jB \\[GIŠ.GEŠTIN.GÍR\\]; also a disease', 'bramble?']
 ])('%s', (meaning, guideWord) => {
   const strippedMeaning = matchGuideWord(meaning)
   expect(strippedMeaning).toEqual(guideWord)

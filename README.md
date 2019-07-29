@@ -13,10 +13,10 @@ A script to obtain Guide Words from the dictionary
   - strip "to" from verbs and preserve it in all other cases
   - check for generalised meaning
   - check for unknown meaning and expand "mng. unkn." abbreviation
+  - change the position of question marks in case of the uncertain meaning
 
 ## To be done:
 
-- change the position of question marks in case of the uncertain meaning
 - nominalise adjectives. If a lemma is an adjective, ORACC nominalises it. E.g., qardu[heroic one] instead of "heroic"
 - meanings where single quotes are used instead of double quotes
 - meanings with something before the generalized meaning

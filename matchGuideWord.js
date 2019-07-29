@@ -3,8 +3,8 @@ const { Lexer, Tagger } = require('pos')
 const defaultGuideWord = ''
 
 function checkForGeneralisedMeaning (meaning) {
-  const match = /^\(\D+\)/.exec(meaning)
-  return match ? match[0] : defaultGuideWord
+  const match = /^\((\D+)\)(\??)/.exec(meaning)
+  return match ? `(${match[1]}${match[2]})` : defaultGuideWord
 }
 
 function checkForVerb (meaning) {
@@ -26,8 +26,8 @@ function checkForUnknownMeaning (meaning) {
 }
 
 module.exports = function matchGuideWord (meaning) {
-  const match = /(")(\D+?)("|,|;|\s[A-Z])/.exec(meaning)
+  const match = /"(\D+?)([,;].*?)?"(\??)/.exec(meaning)
   return match
-    ? checkForVerb(match[0]) || match[2]
+    ? checkForVerb(match[0]) || `${match[1]}${match[3]}`
     : checkForUnknownMeaning(meaning) || checkForGeneralisedMeaning(meaning)
 }
