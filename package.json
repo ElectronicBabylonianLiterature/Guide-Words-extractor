@@ -15,9 +15,17 @@
     "pos": "^0.4.2"
   },
   "devDependencies": {
-    "jest": "^24.8.0"
+    "jest": "^24.8.0",
+    "standard": "^13.1.0"
   },
   "scripts": {
     "test": "jest"
+  },
+  "standard": {
+    "env": {
+      "es6": true,
+      "node": true,
+      "jest": true
+    }
   }
 }
