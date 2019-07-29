@@ -10,8 +10,9 @@ const entries = require('./oraccGlossary.json').entries
 const eblGuideWords = extractGuideWords(words)
 const oraccGuideWords = extractOraccGuideWords(entries)
 
-console.log(`Successfully parsed ${_(eblGuideWords).map('guideWord').filter(_.negate(_.isNil)).size()} of ${eblGuideWords.length} eBL words.`)
-
+console.log(`Parsed ${_(eblGuideWords).map('guideWord').filter(_.negate(_.isNil)).size()} of ${eblGuideWords.length} eBL words.`)
+console.log(`Empty guide words: ${_(eblGuideWords).map('guideWord').filter(gw => gw === '').size()}`)
+console.log(`Null guide words: ${_(eblGuideWords).map('guideWord').filter(_.isNil).size()}`)
 const eblLemmas = _(eblGuideWords).map('lemma').uniq().value()
 const oraccLemmas = _(oraccGuideWords).map('lemma').uniq().value()
 
