@@ -9,12 +9,10 @@ function checkForGeneralisedMeaning(meaning) {
 function checkForVerb(meaning) {
   const regExp = /(")(to\s)(\D+?)("|,|;|\s[A-Z])/
   const match = regExp.exec(meaning)
-  if (match !== null) {
+  if (match) {
     const tagger = new pos.Tagger()
-    const matchAsArray = match[3].split(' ')
-    const onlySecondWord = matchAsArray[0]
-    const word = new pos.Lexer().lex(`${onlySecondWord}`);
-    const tagged = tagger.tag(word)
+    const words = new pos.Lexer().lex(match[3])
+    const tagged = tagger.tag(words)
     return tagged[0][1] === 'VB' ? match[3] : `to ${match[3]}`
   } else {
     return ''
