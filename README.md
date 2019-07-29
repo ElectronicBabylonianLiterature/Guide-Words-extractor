@@ -1,8 +1,10 @@
 # guide-words-extractor
+
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 A script to obtain Guide Words from the dictionary
 
 ## Done:
-
 
 - Extract Dictionary GW
 - Extract ORACC GW

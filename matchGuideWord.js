@@ -2,13 +2,13 @@ const pos = require('pos')
 
 const defaultGuideWord = ''
 
-function checkForGeneralisedMeaning(meaning) {
+function checkForGeneralisedMeaning (meaning) {
   const regExp = /^\(\D+\)/
   const match = regExp.exec(meaning)
   return match !== null ? match[0] : defaultGuideWord
 }
 
-function checkForVerb(meaning) {
+function checkForVerb (meaning) {
   const regExp = /(")(to\s)(\D+?)("|,|;|\s[A-Z])/
   const match = regExp.exec(meaning)
   if (match) {
@@ -21,7 +21,7 @@ function checkForVerb(meaning) {
   }
 }
 
-function checkForUnknownMeaning(meaning) {
+function checkForUnknownMeaning (meaning) {
   const regExp = new RegExp('mng. unkn.')
   const match = regExp.exec(meaning)
   if (match !== null) {
@@ -32,7 +32,7 @@ function checkForUnknownMeaning(meaning) {
   }
 }
 
-module.exports = function matchGuideWord(meaning) {
+module.exports = function matchGuideWord (meaning) {
   const regExp = /(")(\D+?)("|,|;|\s[A-Z])/
   const match = regExp.exec(meaning)
   if (match !== null) {
