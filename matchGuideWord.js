@@ -36,7 +36,7 @@ module.exports = function matchGuideWord(meaning) {
   const regExp = /(")(\D+?)("|,|;|\s[A-Z])/
   const match = regExp.exec(meaning)
   if (match !== null) {
-    return checkForVerb(meaning) !== ''
+    return checkForVerb(match[0]) !== ''
       ? checkForVerb(meaning)
       : match[2]
   } else {

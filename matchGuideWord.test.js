@@ -25,7 +25,8 @@ test.each([
   ['', ''],
   ['(a type of vessel) OA', '(a type of vessel)'],
   ['mng. unkn. jB lex.', 'meaning unknown'],
-  ['(or *pahāṣ/zu(m)*) mng. unkn. O/jB', 'meaning unknown']
+  ['(or *pahāṣ/zu(m)*) mng. unkn. O/jB', 'meaning unknown'],
+  ["\"desire, objective\" Bab.(lit.); *n. kašādu(m)* \"to attain o.'s goal\";", 'desire']
 ])('%s', (meaning, guideWord) => {
   const strippedMeaning = matchGuideWord(meaning)
   expect(strippedMeaning).toEqual(guideWord)
