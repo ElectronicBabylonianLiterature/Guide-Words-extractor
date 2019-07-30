@@ -22,6 +22,24 @@ test.each([
   }, '(fish)'],
   [{
     _id: 'lemma III',
+    meaning: '\\[ITI; also ITI.1.KAM; OA ITI.KAM; NB astr. ÁB\\]',
+    amplifiedMeanings: [
+      {
+        meaning: '',
+        vowels: [],
+        key: 'G',
+        entries: []
+      },
+      {
+        meaning: 'OB "to make immovable, paralyse]" part of body',
+        vowels: [],
+        key: 'Št',
+        entries: []
+      }
+    ]
+  }, 'make immovable'],
+  [{
+    _id: 'lemma IV',
     meaning: '',
     amplifiedMeanings: [
       {
@@ -42,7 +60,7 @@ test.each([
     ]
   }, 'wing'],
   [{
-    _id: 'lemma III',
+    _id: 'lemma V',
     meaning: '',
     amplifiedMeanings: [
       {
@@ -63,10 +81,10 @@ test.each([
     ]
   }, 'fin'],
   [{
-    _id: 'lemma IV',
+    _id: 'lemma VI',
     meaning: '\\[ITI; also ITI.1.KAM; OA ITI.KAM; NB astr. ÁB\\]',
     amplifiedMeanings: []
-  }, null]
+  }, '']
 
 ])('%s', (word, guideWord) => {
   const extractedWords = extractGuideWords([word])

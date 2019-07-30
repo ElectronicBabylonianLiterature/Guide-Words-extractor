@@ -2,13 +2,13 @@ const _ = require('lodash')
 const matchGuideWord = require('./matchGuideWord')
 
 function checkForAmplifiedMeanings (word) {
-  return word.amplifiedMeanings[0].meaning !== ''
-    ? matchGuideWord(word.amplifiedMeanings[0].meaning)
-    : checkForEntries(word.amplifiedMeanings[0])
+  return _(word.amplifiedMeanings).map(({ meaning, entries }) => matchGuideWord(meaning) || checkForEntries(entries))
+    .reject(_.isEmpty)
+    .first() || ''
 }
 
-function checkForEntries (amplifiedMeaning) {
-  return _(amplifiedMeaning.entries)
+function checkForEntries (entries) {
+  return _(entries)
     .map('meaning')
     .map(matchGuideWord)
     .reject(_.isEmpty)
@@ -16,12 +16,7 @@ function checkForEntries (amplifiedMeaning) {
 }
 
 function extractGuideWord (word) {
-  try {
-    return matchGuideWord(word.meaning) || checkForAmplifiedMeanings(word)
-  } catch (err) {
-    console.error(word._id, err.message)
-    return null
-  }
+  return matchGuideWord(word.meaning) || checkForAmplifiedMeanings(word)
 }
 
 module.exports = function extractGuideWords (words) {
