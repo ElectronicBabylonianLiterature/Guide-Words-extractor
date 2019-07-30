@@ -1,9 +1,10 @@
 const extractGuideWords = require('./extractGuideWords')
 
 test.each([
-  [{ _id: 'lemma I', meaning: 'f. *aruštu*, *maruštu* "dirty" OA, M/NB of clothing, person; f. sg. and pl. as subst. "dirt";' }, 'dirty'],
+  [{ lemma: ['part1', 'part2'], homonym: 'I', meaning: 'f. *aruštu*, *maruštu* "dirty" OA, M/NB of clothing, person; f. sg. and pl. as subst. "dirt";' }, 'dirty'],
   [{
-    _id: 'lemma II',
+    lemma: ['lemma'],
+    homonym: 'II',
     meaning: '\\[ITI; also ITI.1.KAM; OA ITI.KAM; NB astr. ÁB\\]',
     amplifiedMeanings: [
       {
@@ -21,7 +22,8 @@ test.each([
     ]
   }, '(fish)'],
   [{
-    _id: 'lemma III',
+    lemma: ['lemma'],
+    homonym: 'III',
     meaning: '\\[ITI; also ITI.1.KAM; OA ITI.KAM; NB astr. ÁB\\]',
     amplifiedMeanings: [
       {
@@ -39,7 +41,8 @@ test.each([
     ]
   }, 'make immovable'],
   [{
-    _id: 'lemma IV',
+    lemma: ['lemma'],
+    homonym: 'IV',
     meaning: '',
     amplifiedMeanings: [
       {
@@ -60,7 +63,8 @@ test.each([
     ]
   }, 'wing'],
   [{
-    _id: 'lemma V',
+    lemma: ['lemma'],
+    homonym: 'V',
     meaning: '',
     amplifiedMeanings: [
       {
@@ -81,7 +85,8 @@ test.each([
     ]
   }, 'fin'],
   [{
-    _id: 'lemma VI',
+    lemma: ['lemma'],
+    homonym: 'VI',
     meaning: '\\[ITI; also ITI.1.KAM; OA ITI.KAM; NB astr. ÁB\\]',
     amplifiedMeanings: []
   }, '']
@@ -89,7 +94,8 @@ test.each([
 ])('%s', (word, guideWord) => {
   const extractedWords = extractGuideWords([word])
   expect(extractedWords).toEqual([{
-    lemma: 'lemma',
-    guideWord
+    lemma: word.lemma.join(' '),
+    eblHomonym: word.homonym,
+    eblGuideWord: guideWord
   }])
 })

@@ -11,24 +11,27 @@ const eblGuideWords = extractGuideWords(words)
 const oraccGuideWords = extractOraccGuideWords(entries)
 
 console.log(`Parsed ${eblGuideWords.length} eBL words.`)
-console.log(`Empty guide words: ${_(eblGuideWords).map('guideWord').filter(gw => gw === '').size()}`)
-const eblLemmas = _(eblGuideWords).map('lemma').uniq().value()
-const oraccLemmas = _(oraccGuideWords).map('lemma').uniq().value()
+console.log(`Empty eBL guide words: ${_(eblGuideWords).map('eblGuideWord').filter(_.isEmpty).size()}`)
 
-console.log(`eBL lemmas: ${eblLemmas.length}.`)
-console.log(`ORACC lemmas: ${oraccLemmas.length}.`)
-console.log(`Common lemmas: ${_.intersection(eblLemmas, oraccLemmas).length}.`)
-console.log(`Extra ORACC lemmas: ${_.difference(oraccLemmas, eblLemmas).length}.`)
+oraccGuideWords.forEach(({ citationForm, oraccGuideWord }) => {
+  const word = eblGuideWords.find(({ lemma, eblGuideWord }) => citationForm === lemma && oraccGuideWord === eblGuideWord)
+  if (word) {
+    word.oraccGuideWord = oraccGuideWord
+  } else {
+    eblGuideWords.push({
+      lemma: citationForm,
+      oraccGuideWord
+    })
+  }
+})
 
-const ebl = _(eblGuideWords).groupBy('lemma').mapValues((guideWords, lemma) => ({
-  lemma,
-  eblGuideWords: _.map(guideWords, 'guideWord')
-})).value()
-const oracc = _(oraccGuideWords).groupBy('lemma').mapValues((guideWords, lemma) => ({
-  lemma,
-  oraccGuideWords: _.map(guideWords, 'guideWord')
-})).value()
+eblGuideWords.forEach(word => {
+  word.isMatch = word.eblGuideWord === word.oraccGuideWord
+})
 
-fs.writeFileSync('guide-words.csv', Papa.unparse(_(ebl).merge(oracc).values().value(), {
-  columns: ['lemma', 'eblGuideWords', 'oraccGuideWords']
+console.log(`Common guide words: ${_(eblGuideWords).filter('isMatch').size()}`)
+console.log(`Extra ORACC guide words: ${_(eblGuideWords).map('eblHomonym').filter(_.isNil).size()}`)
+
+fs.writeFileSync('guide-words.csv', Papa.unparse(_.sortBy(eblGuideWords, ['lemma', 'eblHomonym']), {
+  columns: ['lemma', 'eblHomonym', 'eblGuideWord', 'oraccGuideWord', 'isMatch']
 }))

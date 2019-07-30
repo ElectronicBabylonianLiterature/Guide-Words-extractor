@@ -1,6 +1,6 @@
 module.exports = function extractOraccGuideWords (entries) {
   return entries.map(entry => ({
-    lemma: entry.cf.replace(/ʾ/g, "'"),
-    guideWord: entry.gw
+    citationForm: entry.cf.replace(/ʾ/g, "'"),
+    oraccGuideWord: entry.gw
   }))
 }

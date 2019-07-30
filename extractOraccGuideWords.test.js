@@ -6,7 +6,7 @@ test.each([
 ])('%s', (word, lemma, guideWord) => {
   const extractedWords = extractOraccGuideWords([word])
   expect(extractedWords).toEqual([{
-    lemma,
-    guideWord
+    citationForm: lemma,
+    oraccGuideWord: guideWord
   }])
 })
