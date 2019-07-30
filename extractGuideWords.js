@@ -10,15 +10,7 @@ function checkForAmplifiedMeanings (word) {
 
 function extractGuideWord (word) {
   try {
-    if (word.meaning !== '') {
-      if (matchGuideWord(word.meaning) !== '') {
-        return matchGuideWord(word.meaning)
-      } else {
-        return checkForAmplifiedMeanings(word)
-      }
-    } else {
-      return checkForAmplifiedMeanings(word)
-    }
+    return matchGuideWord(word.meaning) || checkForAmplifiedMeanings(word)
   } catch (err) {
     console.error(word._id, err.message)
     return null
