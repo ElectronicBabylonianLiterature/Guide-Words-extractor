@@ -42,6 +42,27 @@ test.each([
     ]
   }, 'wing'],
   [{
+    _id: 'lemma III',
+    meaning: '',
+    amplifiedMeanings: [
+      {
+        meaning: '',
+        vowels: [],
+        key: '',
+        entries: [
+          {
+            meaning: '',
+            vowels: []
+          },
+          {
+            meaning: 'O/jB(lit.) "fin" (of fish)',
+            vowels: []
+          }
+        ]
+      }
+    ]
+  }, 'fin'],
+  [{
     _id: 'lemma IV',
     meaning: '\\[ITI; also ITI.1.KAM; OA ITI.KAM; NB astr. ÁB\\]',
     amplifiedMeanings: []
