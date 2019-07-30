@@ -3,9 +3,13 @@ const matchGuideWord = require('./matchGuideWord')
 function checkForAmplifiedMeanings (word) {
   return word.amplifiedMeanings[0].meaning !== ''
     ? matchGuideWord(word.amplifiedMeanings[0].meaning)
-    : word.amplifiedMeanings[0].entries[0].meaning !== ''
-      ? matchGuideWord(word.amplifiedMeanings[0].entries[0].meaning)
-      : ''
+    : checkForEntries(word.amplifiedMeanings[0])
+}
+
+function checkForEntries (amplifiedMeaning) {
+  return amplifiedMeaning.entries[0].meaning !== ''
+    ? matchGuideWord(amplifiedMeaning.entries[0].meaning)
+    : ''
 }
 
 function extractGuideWord (word) {
