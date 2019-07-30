@@ -10,7 +10,6 @@ test.each([
   ['"towards"', 'towards'],
   ['"story"', 'story'],
   ['"kind to"', 'kind to'],
-  // ['"cure by exorcism O/jB', 'cure by exorcism'],
   ['"furious"', 'furious'],
   ['"to sit (down); dwell"', 'sit (down)'],
   ['(+ *-šu/ka* etc.) "he/you (etc.) alone" Bab. (*cf.* GAG §67f)', 'he/you (etc.) alone'],

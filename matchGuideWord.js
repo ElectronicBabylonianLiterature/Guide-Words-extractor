@@ -7,16 +7,10 @@ function checkForGeneralisedMeaning (meaning) {
   return match ? `(${match[1]}${match[2]})` : defaultGuideWord
 }
 
-function checkForVerb (meaning) {
-  const match = /(")(to\s)(\D+?)("|,|;|\s[A-Z])/.exec(meaning)
-  if (match) {
-    const firstMeaning = match[3]
-    const words = new Lexer().lex(firstMeaning)
-    const [[, tag]] = new Tagger().tag(words)
-    return tag === 'VB' ? firstMeaning : `to ${firstMeaning}`
-  } else {
-    return defaultGuideWord
-  }
+function checkForVerb (definition) {
+  const words = new Lexer().lex(definition)
+  const tags = new Tagger().tag(words).map(([, tag]) => tag)
+  return tags[0] === 'TO' && tags[1] === 'VB' ? definition.substring(3) : defaultGuideWord
 }
 
 function checkForUnknownMeaning (meaning) {
@@ -28,6 +22,6 @@ function checkForUnknownMeaning (meaning) {
 module.exports = function matchGuideWord (meaning) {
   const match = /"(\D+?)([,;].*?)?"(\??)/.exec(meaning)
   return match
-    ? checkForVerb(match[0]) || `${match[1]}${match[3]}`
+    ? checkForVerb(match[1]) || `${match[1]}${match[3]}`
     : checkForUnknownMeaning(meaning) || checkForGeneralisedMeaning(meaning)
 }
