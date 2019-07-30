@@ -19,7 +19,6 @@ A script to obtain Guide Words from the dictionary
 
 - nominalise adjectives. If a lemma is an adjective, ORACC nominalises it. E.g., qardu[heroic one] instead of "heroic"
 - meanings where single quotes are used instead of double quotes
-- meanings with something before the generalized meaning
 
 ## Expected discrepancies: 
 

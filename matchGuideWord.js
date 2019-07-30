@@ -3,7 +3,7 @@ const { Lexer, Tagger } = require('pos')
 const defaultGuideWord = ''
 
 function checkForGeneralisedMeaning (meaning) {
-  const match = /^\((\D+)\)(\??)/.exec(meaning)
+  const match = /\((\D+?)\)(\??)( |$)/.exec(meaning)
   return match ? `(${match[1]}${match[2]})` : defaultGuideWord
 }
 

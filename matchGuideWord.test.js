@@ -28,7 +28,8 @@ test.each([
   ["\"desire, objective\" Bab.(lit.); *n. kašādu(m)* \"to attain o.'s goal\";", 'desire'],
   ['(a tunic)? Am., Nuzi, NA, NB; multicoloured; of linen; Nuzi in pairs', '(a tunic?)'],
   ['\\~ "tribe, confederation"? jB(Ass.) \\[GIŠ.DA\\];', 'tribe?'],
-  ['"bramble"? M/jB \\[GIŠ.GEŠTIN.GÍR\\]; also a disease', 'bramble?']
+  ['"bramble"? M/jB \\[GIŠ.GEŠTIN.GÍR\\]; also a disease', 'bramble?'],
+  ['?, lex. also *assinnatu* \\~ (male cultic prostitute) O/jB, Alal., Nuzi, NA \\[(LÚ.)UR.MUNUS; SAG.UR.SAG\\]', '(male cultic prostitute)']
 ])('%s', (meaning, guideWord) => {
   const strippedMeaning = matchGuideWord(meaning)
   expect(strippedMeaning).toEqual(guideWord)
