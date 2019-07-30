@@ -15,7 +15,7 @@ function checkForVerb (definition) {
 
 function checkForUnknownMeaning (meaning) {
   return /mng\. unkn\./.test(meaning)
-    ? 'meaning unknown'
+    ? '(meaning unknown)'
     : defaultGuideWord
 }
 
