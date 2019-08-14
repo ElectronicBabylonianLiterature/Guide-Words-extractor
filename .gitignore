@@ -63,8 +63,9 @@ typings/
 # dictionary
 words.json
 
-#RINAP glossary
+#Oracc glossaries
 oraccGlossary.json
+gloss-akk.json
 
 # Output
 guide-words.csv
