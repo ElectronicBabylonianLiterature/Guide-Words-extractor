@@ -23,6 +23,7 @@ module.exports = function extractGuideWords (words) {
   return words.map(word => ({
     lemma: word.lemma.join(' '),
     eblHomonym: word.homonym,
-    eblGuideWord: extractGuideWord(word)
+    eblGuideWord: extractGuideWord(word),
+    legacyEntry: word.source || null
   }))
 }

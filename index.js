@@ -34,7 +34,7 @@ console.log(`Common guide words: ${_(eblGuideWords).filter('isMatch').size()}`)
 console.log(`Extra ORACC guide words: ${_(eblGuideWords).map('eblHomonym').filter(_.isNil).size()}`)
 
 fs.writeFileSync('guide-words.csv', Papa.unparse(_.sortBy(eblGuideWords, ['lemma', 'eblHomonym']), {
-  columns: ['lemma', 'eblHomonym', 'eblGuideWord', 'oraccGuideWord', 'isMatch']
+  columns: ['lemma', 'eblHomonym', 'eblGuideWord', 'oraccGuideWord', 'isMatch', 'legacyEntry']
 }))
 
 function addToExistingWord (word, newOraccGuideWord) {

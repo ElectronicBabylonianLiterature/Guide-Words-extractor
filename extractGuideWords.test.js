@@ -1,7 +1,12 @@
 const extractGuideWords = require('./extractGuideWords')
 
 test.each([
-  [{ lemma: ['part1', 'part2'], homonym: 'I', meaning: 'f. *aruštu*, *maruštu* "dirty" OA, M/NB of clothing, person; f. sg. and pl. as subst. "dirt";' }, 'dirty'],
+  [{
+    lemma: ['part1', 'part2'],
+    homonym: 'I',
+    meaning: 'f. *aruštu*, *maruštu* "dirty" OA, M/NB of clothing, person; f. sg. and pl. as subst. "dirt";',
+    source: 'source 1'
+  }, 'dirty'],
   [{
     lemma: ['lemma'],
     homonym: 'II',
@@ -19,7 +24,8 @@ test.each([
         key: 'Št',
         entries: []
       }
-    ]
+    ],
+    source: 'source 1'
   }, '(fish)'],
   [{
     lemma: ['lemma'],
@@ -38,7 +44,8 @@ test.each([
         key: 'Št',
         entries: []
       }
-    ]
+    ],
+    source: 'source 3'
   }, 'make immovable'],
   [{
     lemma: ['lemma'],
@@ -60,7 +67,8 @@ test.each([
           }
         ]
       }
-    ]
+    ],
+    source: 'source 4'
   }, 'wing'],
   [{
     lemma: ['lemma'],
@@ -82,7 +90,8 @@ test.each([
           }
         ]
       }
-    ]
+    ],
+    source: 'source 5'
   }, 'fin'],
   [{
     lemma: ['lemma'],
@@ -96,6 +105,7 @@ test.each([
   expect(extractedWords).toEqual([{
     lemma: word.lemma.join(' '),
     eblHomonym: word.homonym,
-    eblGuideWord: guideWord
+    eblGuideWord: guideWord,
+    legacyEntry: word.source || null
   }])
 })
