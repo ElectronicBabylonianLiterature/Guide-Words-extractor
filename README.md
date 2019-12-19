@@ -1,5 +1,6 @@
 # guide-words-extractor
 
+[![Build Status](https://travis-ci.com/ElectronicBabylonianLiterature/guide-words-extractor.svg?branch=master)](https://travis-ci.com/ElectronicBabylonianLiterature/guide-words-extractor)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 A script to obtain Guide Words from the dictionary
