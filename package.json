@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.19",
-    "papaparse": "^5.0.1",
+    "papaparse": "^5.2.0",
     "pos": "^0.4.2"
   },
   "devDependencies": {
